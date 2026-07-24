@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="128" height="128" rx="20" fill="url(#bg)"/>
+
+  <!-- Wordmark -->
+  <text x="64" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#a78bfa">LIGHT</text>
+  <text x="64" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="28" letter-spacing="0.5" fill="#e9e4ff">EMACS</text>
+</svg>

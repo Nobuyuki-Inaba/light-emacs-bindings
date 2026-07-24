@@ -1,0 +1,16 @@
+export const CTX = {
+  ACTIVE: 'lightEmacsBindings.active',
+  MOVEMENT_ENABLED: 'lightEmacsBindings.movement.enabled',
+  MARK_ENABLED: 'lightEmacsBindings.mark.enabled',
+  RECTANGLE_SELECTION_ENABLED: 'lightEmacsBindings.rectangleSelection.enabled',
+  GO_TO_FILE_ENABLED: 'lightEmacsBindings.goToFile.enabled',
+  COMMAND_PALETTE_ENABLED: 'lightEmacsBindings.commandPalette.enabled',
+  KILL_LINE_ENABLED: 'lightEmacsBindings.killLine.enabled',
+  COMMENT_ENABLED: 'lightEmacsBindings.comment.enabled',
+  UNDO_REDO_ENABLED: 'lightEmacsBindings.undoRedo.enabled',
+  INCREMENTAL_SEARCH_ENABLED: 'lightEmacsBindings.incrementalSearch.enabled',
+  SAVE_ENABLED: 'lightEmacsBindings.save.enabled',
+  CTRL_X_PREFIX_AVAILABLE: 'lightEmacsBindings.ctrlXPrefixAvailable',
+  MARK_ACTIVE: 'lightEmacsBindings.markActive',
+  CTRL_X_PREFIX_ACTIVE: 'lightEmacsBindings.ctrlXPrefixActive',
+} as const;

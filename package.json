@@ -1,0 +1,243 @@
+{
+  "name": "light-emacs-bindings",
+  "displayName": "Light Emacs Bindings",
+  "description": "軽量なEmacsキーバインディングを実現する拡張機能",
+  "version": "0.0.1",
+  "publisher": "nobuyuki-inaba",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nobuyuki-Inaba/light-emacs-bindings.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Keymaps"
+  ],
+  "keywords": [
+    "emacs",
+    "keybindings",
+    "keymap"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lightEmacsBindings.toggleEnabled",
+        "title": "Light Emacs Bindings: Toggle Enabled"
+      },
+      {
+        "command": "lightEmacsBindings.setMarkCommand",
+        "title": "Light Emacs Bindings: Set Mark"
+      },
+      {
+        "command": "lightEmacsBindings.keyboardQuit",
+        "title": "Light Emacs Bindings: Keyboard Quit"
+      },
+      {
+        "command": "lightEmacsBindings.ctrlXPrefix",
+        "title": "Light Emacs Bindings: Ctrl+X Prefix (internal)"
+      },
+      {
+        "command": "lightEmacsBindings.goToFile",
+        "title": "Light Emacs Bindings: Go to File (Ctrl+X Ctrl+F)"
+      },
+      {
+        "command": "lightEmacsBindings.rectangleMark",
+        "title": "Light Emacs Bindings: Toggle Rectangle Mark (Ctrl+X Space)"
+      },
+      {
+        "command": "lightEmacsBindings.killLine",
+        "title": "Light Emacs Bindings: Kill Line (Ctrl+K)"
+      },
+      {
+        "command": "lightEmacsBindings.save",
+        "title": "Light Emacs Bindings: Save (Ctrl+X Ctrl+S)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "lightEmacsBindings.ctrlXPrefix",
+          "when": "false"
+        }
+      ]
+    },
+    "keybindings": [
+      { "key": "ctrl+f", "command": "cursorRight",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive && !lightEmacsBindings.ctrlXPrefixActive" },
+      { "key": "ctrl+f", "command": "cursorRightSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive && !lightEmacsBindings.ctrlXPrefixActive" },
+
+      { "key": "ctrl+b", "command": "cursorLeft",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "ctrl+b", "command": "cursorLeftSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "ctrl+n", "command": "cursorDown",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "ctrl+n", "command": "cursorDownSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "ctrl+p", "command": "cursorUp",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "ctrl+p", "command": "cursorUpSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "ctrl+a", "command": "cursorHome",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "ctrl+a", "command": "cursorHomeSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "ctrl+e", "command": "cursorEnd", "args": { "sticky": false },
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "ctrl+e", "command": "cursorEndSelect", "args": { "sticky": false },
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "alt+f", "command": "cursorWordEndRight",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "alt+f", "command": "cursorWordEndRightSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "alt+b", "command": "cursorWordLeft",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "alt+b", "command": "cursorWordLeftSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "alt+v", "command": "cursorPageUp",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "alt+v", "command": "cursorPageUpSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "alt+shift+,", "command": "cursorTop",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "alt+shift+,", "command": "cursorTopSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "alt+shift+.", "command": "cursorBottom",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && !lightEmacsBindings.markActive" },
+      { "key": "alt+shift+.", "command": "cursorBottomSelect",
+        "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
+
+      { "key": "ctrl+space", "command": "lightEmacsBindings.setMarkCommand",
+        "when": "editorTextFocus && lightEmacsBindings.mark.enabled" },
+      { "key": "ctrl+g", "command": "lightEmacsBindings.keyboardQuit",
+        "when": "editorTextFocus && lightEmacsBindings.active" },
+
+      { "key": "ctrl+x", "command": "lightEmacsBindings.ctrlXPrefix",
+        "when": "editorTextFocus && lightEmacsBindings.ctrlXPrefixAvailable" },
+      { "key": "ctrl+f", "command": "lightEmacsBindings.goToFile",
+        "when": "editorTextFocus && lightEmacsBindings.ctrlXPrefixActive && lightEmacsBindings.goToFile.enabled" },
+      { "key": "space", "command": "lightEmacsBindings.rectangleMark",
+        "when": "editorTextFocus && lightEmacsBindings.ctrlXPrefixActive && lightEmacsBindings.rectangleSelection.enabled" },
+      { "key": "ctrl+s", "command": "lightEmacsBindings.save",
+        "when": "editorTextFocus && lightEmacsBindings.ctrlXPrefixActive && lightEmacsBindings.save.enabled" },
+
+      { "key": "ctrl+k", "command": "lightEmacsBindings.killLine",
+        "when": "editorTextFocus && lightEmacsBindings.killLine.enabled" },
+
+      { "key": "ctrl+;", "command": "editor.action.commentLine",
+        "when": "editorTextFocus && lightEmacsBindings.comment.enabled" },
+
+      { "key": "ctrl+/", "command": "undo",
+        "when": "editorTextFocus && lightEmacsBindings.undoRedo.enabled" },
+      { "key": "ctrl+shift+/", "command": "redo",
+        "when": "editorTextFocus && lightEmacsBindings.undoRedo.enabled" },
+
+      { "key": "ctrl+s", "command": "actions.find",
+        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled && !findWidgetVisible && !lightEmacsBindings.ctrlXPrefixActive" },
+      { "key": "ctrl+s", "command": "editor.action.nextMatchFindAction",
+        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible && !lightEmacsBindings.ctrlXPrefixActive" },
+      { "key": "ctrl+r", "command": "actions.find",
+        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled && !findWidgetVisible" },
+      { "key": "ctrl+r", "command": "editor.action.previousMatchFindAction",
+        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible" },
+
+      { "key": "alt+x", "command": "workbench.action.showCommands",
+        "when": "lightEmacsBindings.commandPalette.enabled" }
+    ],
+    "configuration": {
+      "title": "Light Emacs Bindings",
+      "properties": {
+        "lightEmacsBindings.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Master switch for every keybinding this extension contributes."
+        },
+        "lightEmacsBindings.movement.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emacs-style cursor movement (Ctrl+F/B/N/P/A/E, Alt+F/B/V, Alt+Shift+,/.). Warning: Ctrl+A overrides Select All — see README. Ctrl+V/Ctrl+C are never touched (kept as native Paste/Copy)."
+        },
+        "lightEmacsBindings.mark.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emacs-style mark (Ctrl+Space starts a selection extended by movement keys). Overrides manual IntelliSense invocation (Trigger Suggest); automatic suggestion popups while typing are unaffected."
+        },
+        "lightEmacsBindings.rectangleSelection.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Rectangle/column selection via Ctrl+X Space."
+        },
+        "lightEmacsBindings.goToFile.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+X Ctrl+F opens Quick Open (Go to File)."
+        },
+        "lightEmacsBindings.commandPalette.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Alt+X opens the Command Palette."
+        },
+        "lightEmacsBindings.killLine.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+K kills from the cursor to end of line (joining the next line if already at end-of-line) and copies the killed text to the clipboard. Warning: overrides VS Code's entire native Ctrl+K… chord family (comment toggling, format selection, zen mode, etc.) — see README."
+        },
+        "lightEmacsBindings.comment.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+; toggles the line comment (relocated from VS Code's default Ctrl+/, which this extension repurposes for Undo)."
+        },
+        "lightEmacsBindings.undoRedo.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+/ = Undo (Emacs C-/), Ctrl+Shift+/ = Redo (Emacs-style C-?). Overrides VS Code's default Toggle Line Comment on Ctrl+/ — see the comment.enabled setting for its replacement (Ctrl+;). Ctrl+Z/Ctrl+Y keep working natively alongside these."
+        },
+        "lightEmacsBindings.incrementalSearch.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+S opens incremental search (Emacs C-s) and jumps to the next match on repeat; Ctrl+R opens it searching backward (Emacs C-r) and jumps to the previous match on repeat. Warning: Ctrl+S overrides Save (see save.enabled for the replacement) and Ctrl+R overrides 'Switch Window/Workspace' — see README."
+        },
+        "lightEmacsBindings.save.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+X Ctrl+S saves the current file (Emacs C-x C-s)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build:ext": "esbuild src/extension.ts --bundle --outfile=out/extension.js --format=cjs --platform=node --external:vscode --target=node20 --legal-comments=inline",
+    "compile": "tsc -p tsconfig.build.json --noEmit && npm run build:ext",
+    "watch": "npm run build:ext -- --watch",
+    "test": "vitest run",
+    "icon": "node scripts/make-icon.mjs",
+    "package": "tsc -p tsconfig.build.json --noEmit && npm run build:ext -- --minify && vsce package"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.24.0",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.4.0",
+    "vitest": "^4.1.9"
+  }
+}
