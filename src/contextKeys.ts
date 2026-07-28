@@ -6,6 +6,7 @@ export const CTX = {
   GO_TO_FILE_ENABLED: 'lightEmacsBindings.goToFile.enabled',
   COMMAND_PALETTE_ENABLED: 'lightEmacsBindings.commandPalette.enabled',
   KILL_LINE_ENABLED: 'lightEmacsBindings.killLine.enabled',
+  DELETE_CHAR_ENABLED: 'lightEmacsBindings.deleteChar.enabled',
   COMMENT_ENABLED: 'lightEmacsBindings.comment.enabled',
   UNDO_REDO_ENABLED: 'lightEmacsBindings.undoRedo.enabled',
   INCREMENTAL_SEARCH_ENABLED: 'lightEmacsBindings.incrementalSearch.enabled',

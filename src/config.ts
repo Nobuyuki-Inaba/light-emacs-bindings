@@ -8,6 +8,7 @@ export interface LightEmacsConfig {
   goToFileEnabled: boolean;
   commandPaletteEnabled: boolean;
   killLineEnabled: boolean;
+  deleteCharEnabled: boolean;
   commentEnabled: boolean;
   undoRedoEnabled: boolean;
   incrementalSearchEnabled: boolean;
@@ -25,6 +26,7 @@ export function computeContextKeys(config: LightEmacsConfig): ContextKeyValues {
   const goToFile = active && config.goToFileEnabled;
   const commandPalette = active && config.commandPaletteEnabled;
   const killLine = active && config.killLineEnabled;
+  const deleteChar = active && config.deleteCharEnabled;
   const comment = active && config.commentEnabled;
   const undoRedo = active && config.undoRedoEnabled;
   const incrementalSearch = active && config.incrementalSearchEnabled;
@@ -38,6 +40,7 @@ export function computeContextKeys(config: LightEmacsConfig): ContextKeyValues {
     [CTX.GO_TO_FILE_ENABLED]: goToFile,
     [CTX.COMMAND_PALETTE_ENABLED]: commandPalette,
     [CTX.KILL_LINE_ENABLED]: killLine,
+    [CTX.DELETE_CHAR_ENABLED]: deleteChar,
     [CTX.COMMENT_ENABLED]: comment,
     [CTX.UNDO_REDO_ENABLED]: undoRedo,
     [CTX.INCREMENTAL_SEARCH_ENABLED]: incrementalSearch,

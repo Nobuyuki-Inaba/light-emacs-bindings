@@ -51,6 +51,7 @@
 | `Ctrl+X Ctrl+F` | find-file — Quick Openを開く | *([Ctrl+X](#ctrlxの仕組み)参照)* |
 | `Ctrl+X Ctrl+S` | save-buffer — 現在のファイルを保存 | *([Ctrl+X](#ctrlxの仕組み)参照)* |
 | `Ctrl+K` | kill-line — 行末まで削除(行末なら次行と連結)、クリップボードにコピー | VS Code純正の `Ctrl+K …` チェインコマンド群(行コメント切り替え・フォーマット・Zenモードなど。コマンドパレットから利用可) |
+| `Ctrl+D` | delete-char — カーソル直後の1文字を削除(選択範囲があればその範囲を削除) | 次の一致を選択に追加(コマンドパレットから利用可) |
 | `Ctrl+;` | comment-line — 行コメント切り替え | *(既定では未割り当て — VS Code純正の行コメント切り替えの移動先)* |
 | `Ctrl+/` | Undo | 行コメント切り替え(`Ctrl+;` に移動) |
 | `Ctrl+Shift+/` | Redo(Emacs流の `C-?` 慣習) | *(既定では未割り当て)* — `Ctrl+Z`/`Ctrl+Y` も引き続き有効 |
@@ -85,6 +86,7 @@
 | 行コメント切り替え(`Ctrl+/`) | `Ctrl+;` |
 | 保存(`Ctrl+S`) | `Ctrl+X Ctrl+S` / File メニュー |
 | ウィンドウ/ワークスペース切り替え(`Ctrl+R`) | コマンドパレット |
+| 次の一致を選択に追加(`Ctrl+D`) | コマンドパレット |
 | `Ctrl+K …` チェインコマンド群 | コマンドパレット |
 
 コピー・カット・ペーストはこの一覧に含まれません — 一切変更していないためです。
@@ -103,6 +105,7 @@
 | `lightEmacsBindings.save.enabled` | `true` | 保存(`Ctrl+X Ctrl+S`) |
 | `lightEmacsBindings.commandPalette.enabled` | `true` | コマンドパレット(`Alt+X`) |
 | `lightEmacsBindings.killLine.enabled` | `true` | kill-line(`Ctrl+K`) |
+| `lightEmacsBindings.deleteChar.enabled` | `true` | delete-char(`Ctrl+D`) |
 | `lightEmacsBindings.comment.enabled` | `true` | コメント切り替え(`Ctrl+;`) |
 | `lightEmacsBindings.undoRedo.enabled` | `true` | Undo/Redo(`Ctrl+/` / `Ctrl+Shift+/`) |
 | `lightEmacsBindings.incrementalSearch.enabled` | `true` | 検索(`Ctrl+S` / `Ctrl+R`) |

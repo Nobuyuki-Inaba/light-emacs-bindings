@@ -51,6 +51,7 @@
 | `Ctrl+X Ctrl+F` | find-file — opens Quick Open | *(see [Ctrl+X](#how-ctrlx-works))* |
 | `Ctrl+X Ctrl+S` | save-buffer — saves the current file | *(see [Ctrl+X](#how-ctrlx-works))* |
 | `Ctrl+K` | kill-line — delete to end of line (joining the next line at EOL), copied to the clipboard | VS Code's entire `Ctrl+K …` chord family (comment toggling, formatting, Zen Mode, etc. — still on the Command Palette) |
+| `Ctrl+D` | delete-char — delete the character after the cursor (or the selection, if any) | Add Selection To Next Find Match (still on the Command Palette) |
 | `Ctrl+;` | comment-line — toggle the line comment | *(unbound by default — this is where VS Code's own Toggle Line Comment moved to)* |
 | `Ctrl+/` | undo | Toggle Line Comment (moved to `Ctrl+;`) |
 | `Ctrl+Shift+/` | redo (Emacs-style `C-?` convention) | *(unbound by default)* — `Ctrl+Z`/`Ctrl+Y` keep working natively too |
@@ -85,6 +86,7 @@
 | Toggle Line Comment (`Ctrl+/`) | `Ctrl+;` |
 | Save (`Ctrl+S`) | `Ctrl+X Ctrl+S` / File menu |
 | Switch Window/Workspace (`Ctrl+R`) | Command Palette |
+| Add Selection To Next Find Match (`Ctrl+D`) | Command Palette |
 | `Ctrl+K …` chord family | Command Palette |
 
 Copy, Cut, and Paste are never in this table — they're not touched.
@@ -103,6 +105,7 @@ Search **"Light Emacs Bindings"** in VS Code's Settings UI, or edit `settings.js
 | `lightEmacsBindings.save.enabled` | `true` | Save (`Ctrl+X Ctrl+S`) |
 | `lightEmacsBindings.commandPalette.enabled` | `true` | Command Palette (`Alt+X`) |
 | `lightEmacsBindings.killLine.enabled` | `true` | Kill-line (`Ctrl+K`) |
+| `lightEmacsBindings.deleteChar.enabled` | `true` | Delete-char (`Ctrl+D`) |
 | `lightEmacsBindings.comment.enabled` | `true` | Comment toggle (`Ctrl+;`) |
 | `lightEmacsBindings.undoRedo.enabled` | `true` | Undo/Redo (`Ctrl+/` / `Ctrl+Shift+/`) |
 | `lightEmacsBindings.incrementalSearch.enabled` | `true` | Search (`Ctrl+S` / `Ctrl+R`) |

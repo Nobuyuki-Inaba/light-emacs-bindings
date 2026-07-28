@@ -10,6 +10,7 @@ const allEnabled: LightEmacsConfig = {
   goToFileEnabled: true,
   commandPaletteEnabled: true,
   killLineEnabled: true,
+  deleteCharEnabled: true,
   commentEnabled: true,
   undoRedoEnabled: true,
   incrementalSearchEnabled: true,
@@ -27,6 +28,7 @@ describe('computeContextKeys', () => {
     expect(result[CTX.GO_TO_FILE_ENABLED]).toBe(true);
     expect(result[CTX.COMMAND_PALETTE_ENABLED]).toBe(true);
     expect(result[CTX.KILL_LINE_ENABLED]).toBe(true);
+    expect(result[CTX.DELETE_CHAR_ENABLED]).toBe(true);
     expect(result[CTX.COMMENT_ENABLED]).toBe(true);
     expect(result[CTX.UNDO_REDO_ENABLED]).toBe(true);
     expect(result[CTX.INCREMENTAL_SEARCH_ENABLED]).toBe(true);
@@ -108,6 +110,7 @@ describe('computeContextKeys', () => {
       CTX.GO_TO_FILE_ENABLED,
       CTX.COMMAND_PALETTE_ENABLED,
       CTX.KILL_LINE_ENABLED,
+      CTX.DELETE_CHAR_ENABLED,
       CTX.COMMENT_ENABLED,
       CTX.UNDO_REDO_ENABLED,
       CTX.INCREMENTAL_SEARCH_ENABLED,

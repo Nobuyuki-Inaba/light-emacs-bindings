@@ -2,7 +2,7 @@
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
   "description": "軽量なEmacsキーバインディングを実現する拡張機能",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -142,6 +142,9 @@
       { "key": "ctrl+k", "command": "lightEmacsBindings.killLine",
         "when": "editorTextFocus && lightEmacsBindings.killLine.enabled" },
 
+      { "key": "ctrl+d", "command": "deleteRight",
+        "when": "editorTextFocus && !editorReadonly && lightEmacsBindings.deleteChar.enabled" },
+
       { "key": "ctrl+;", "command": "editor.action.commentLine",
         "when": "editorTextFocus && lightEmacsBindings.comment.enabled" },
 
@@ -199,6 +202,11 @@
           "type": "boolean",
           "default": true,
           "description": "Ctrl+K kills from the cursor to end of line (joining the next line if already at end-of-line) and copies the killed text to the clipboard. Warning: overrides VS Code's entire native Ctrl+K… chord family (comment toggling, format selection, zen mode, etc.) — see README."
+        },
+        "lightEmacsBindings.deleteChar.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ctrl+D deletes the character after the cursor (Emacs C-d), or the selection if there is one. Warning: overrides VS Code's 'Add Selection To Next Find Match' — see README."
         },
         "lightEmacsBindings.comment.enabled": {
           "type": "boolean",

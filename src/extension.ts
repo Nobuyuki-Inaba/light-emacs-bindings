@@ -14,6 +14,7 @@ function readConfig(): LightEmacsConfig {
     goToFileEnabled: c.get<boolean>('goToFile.enabled', true),
     commandPaletteEnabled: c.get<boolean>('commandPalette.enabled', true),
     killLineEnabled: c.get<boolean>('killLine.enabled', true),
+    deleteCharEnabled: c.get<boolean>('deleteChar.enabled', true),
     commentEnabled: c.get<boolean>('comment.enabled', true),
     undoRedoEnabled: c.get<boolean>('undoRedo.enabled', true),
     incrementalSearchEnabled: c.get<boolean>('incrementalSearch.enabled', true),
