@@ -50,7 +50,7 @@
 |---|---|---|
 | `Ctrl+X Ctrl+F` | find-file — opens Quick Open | *(see [Ctrl+X](#how-ctrlx-works))* |
 | `Ctrl+X Ctrl+S` | save-buffer — saves the current file | *(see [Ctrl+X](#how-ctrlx-works))* |
-| `Ctrl+K` | kill-line — delete to end of line (joining the next line at EOL), copied to the clipboard | VS Code's entire `Ctrl+K …` chord family (comment toggling, formatting, Zen Mode, etc. — still on the Command Palette) |
+| `Ctrl+K` | kill-line — delete to end of line (joining the next line at EOL), copied to the clipboard. In the integrated terminal, sends the raw `C-k` (`0x0B`) instead, so the shell's own kill-line runs | VS Code's entire `Ctrl+K …` chord family (comment toggling, formatting, Zen Mode, etc. — still on the Command Palette) |
 | `Ctrl+D` | delete-char — delete the character after the cursor (or the selection, if any) | Add Selection To Next Find Match (still on the Command Palette) |
 | `Ctrl+;` | comment-line — toggle the line comment | *(unbound by default — this is where VS Code's own Toggle Line Comment moved to)* |
 | `Ctrl+/` | undo | Toggle Line Comment (moved to `Ctrl+;`) |

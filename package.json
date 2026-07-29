@@ -2,7 +2,7 @@
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
   "description": "軽量なEmacsキーバインディングを実現する拡張機能",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -141,6 +141,9 @@
 
       { "key": "ctrl+k", "command": "lightEmacsBindings.killLine",
         "when": "editorTextFocus && lightEmacsBindings.killLine.enabled" },
+      { "key": "ctrl+k", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u000b" },
+        "when": "terminalFocus && lightEmacsBindings.killLine.enabled" },
 
       { "key": "ctrl+d", "command": "deleteRight",
         "when": "editorTextFocus && !editorReadonly && lightEmacsBindings.deleteChar.enabled" },
@@ -201,7 +204,7 @@
         "lightEmacsBindings.killLine.enabled": {
           "type": "boolean",
           "default": true,
-          "description": "Ctrl+K kills from the cursor to end of line (joining the next line if already at end-of-line) and copies the killed text to the clipboard. Warning: overrides VS Code's entire native Ctrl+K… chord family (comment toggling, format selection, zen mode, etc.) — see README."
+          "description": "Ctrl+K kills from the cursor to end of line (joining the next line if already at end-of-line) and copies the killed text to the clipboard. In the integrated terminal it instead sends the raw C-k (0x0B) control character so the shell's own kill-line runs. Warning: overrides VS Code's entire native Ctrl+K… chord family (comment toggling, format selection, zen mode, etc.) — see README."
         },
         "lightEmacsBindings.deleteChar.enabled": {
           "type": "boolean",
