@@ -20,7 +20,7 @@
 | `Ctrl+N` | next-line | New File |
 | `Ctrl+P` | previous-line | Quick Open |
 | `Ctrl+A` | beginning-of-line | Select All |
-| `Ctrl+E` | end-of-line | *(unbound by default)* |
+| `Ctrl+E` | end-of-line | Quick Open (VS Code binds it as a second key for `Ctrl+P`) |
 | `Alt+F` | forward-word | File-menu mnemonic (only if the menu bar is shown) |
 | `Alt+B` | backward-word | — |
 | `Alt+V` | scroll up a page | — |
@@ -28,6 +28,8 @@
 | `Alt+Shift+.` (`Alt+>`) | end-of-buffer | — |
 
 `Ctrl+V` and `Ctrl+C` are never bound by this extension — Paste and Copy stay native.
+
+**In the integrated terminal**, `Ctrl+F` / `Ctrl+B` / `Ctrl+N` / `Ctrl+P` / `Ctrl+A` / `Ctrl+E` send the matching raw control character (`0x06` / `0x02` / `0x0E` / `0x10` / `0x01` / `0x05`) instead, so your shell's own readline movement runs. Without this, VS Code intercepts `Ctrl+E` and `Ctrl+P` for Quick Open and `Ctrl+F` for the terminal find widget before the shell ever sees them — those three keys are the reason this exists; the other three are bound too so terminal behaviour stays predictable regardless of your `terminal.integrated.commandsToSkipShell` setting.
 
 ### Mark & selection
 
@@ -78,7 +80,8 @@
 |---|---|
 | Toggle Sidebar Visibility (`Ctrl+B`) | View menu / Command Palette |
 | New File (`Ctrl+N`) | File menu / Command Palette |
-| Quick Open (`Ctrl+P`) | `Ctrl+X Ctrl+F` / Command Palette |
+| Quick Open (`Ctrl+P`, and its second key `Ctrl+E`) | `Ctrl+X Ctrl+F` / Command Palette |
+| Terminal Find widget (`Ctrl+F` with the terminal focused) | Command Palette |
 | Find (`Ctrl+F`) | `Ctrl+S` / Command Palette |
 | Go to Line (`Ctrl+G`) | Command Palette |
 | Select All (`Ctrl+A`) | Edit menu / Command Palette |

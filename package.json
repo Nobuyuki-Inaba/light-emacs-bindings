@@ -2,7 +2,7 @@
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
   "description": "軽量なEmacsキーバインディングを実現する拡張機能",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -125,6 +125,25 @@
       { "key": "alt+shift+.", "command": "cursorBottomSelect",
         "when": "editorTextFocus && lightEmacsBindings.movement.enabled && lightEmacsBindings.markActive" },
 
+      { "key": "ctrl+f", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0006" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+      { "key": "ctrl+b", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0002" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+      { "key": "ctrl+n", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u000e" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+      { "key": "ctrl+p", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0010" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+      { "key": "ctrl+a", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0001" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+      { "key": "ctrl+e", "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0005" },
+        "when": "terminalFocus && lightEmacsBindings.movement.enabled" },
+
       { "key": "ctrl+space", "command": "lightEmacsBindings.setMarkCommand",
         "when": "editorTextFocus && lightEmacsBindings.mark.enabled" },
       { "key": "ctrl+g", "command": "lightEmacsBindings.keyboardQuit",
@@ -179,7 +198,7 @@
         "lightEmacsBindings.movement.enabled": {
           "type": "boolean",
           "default": true,
-          "description": "Emacs-style cursor movement (Ctrl+F/B/N/P/A/E, Alt+F/B/V, Alt+Shift+,/.). Warning: Ctrl+A overrides Select All — see README. Ctrl+V/Ctrl+C are never touched (kept as native Paste/Copy)."
+          "description": "Emacs-style cursor movement (Ctrl+F/B/N/P/A/E, Alt+F/B/V, Alt+Shift+,/.). In the integrated terminal, Ctrl+F/B/N/P/A/E instead send the matching raw control character so the shell's own readline movement runs (VS Code otherwise swallows Ctrl+E and Ctrl+P for Quick Open, and Ctrl+F for the terminal find widget). Warning: Ctrl+A overrides Select All — see README. Ctrl+V/Ctrl+C are never touched (kept as native Paste/Copy)."
         },
         "lightEmacsBindings.mark.enabled": {
           "type": "boolean",

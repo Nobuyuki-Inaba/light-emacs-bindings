@@ -20,7 +20,7 @@
 | `Ctrl+N` | 次行 | 新規ファイル |
 | `Ctrl+P` | 前行 | Quick Open |
 | `Ctrl+A` | 行頭 | 全選択 |
-| `Ctrl+E` | 行末 | *(既定では未割り当て)* |
+| `Ctrl+E` | 行末 | Quick Open(VS Codeが `Ctrl+P` の第2キーとして割り当てている) |
 | `Alt+F` | 単語単位で前進 | File メニューのニーモニック(メニューバー表示時のみ) |
 | `Alt+B` | 単語単位で後退 | — |
 | `Alt+V` | 前ページへスクロール | — |
@@ -28,6 +28,8 @@
 | `Alt+Shift+.`(`Alt+>`) | バッファ末尾 | — |
 
 `Ctrl+V`・`Ctrl+C` はこの拡張機能では一切割り当てません — 貼り付け・コピーは常に標準のままです。
+
+**統合ターミナルでは**、`Ctrl+F`・`Ctrl+B`・`Ctrl+N`・`Ctrl+P`・`Ctrl+A`・`Ctrl+E` は対応する生の制御文字(`0x06`・`0x02`・`0x0E`・`0x10`・`0x01`・`0x05`)を送出し、シェル自身のreadlineによる移動が動くようにしています。これが無いと、`Ctrl+E`・`Ctrl+P` はVS Code側のQuick Openに、`Ctrl+F` はターミナルの検索ウィジェットに横取りされ、シェルまで届きません。実際に壊れているのはこの3つですが、`terminal.integrated.commandsToSkipShell` の設定に左右されず挙動が一定になるよう残り3つも同様に割り当てています。
 
 ### Mark・選択
 
@@ -78,7 +80,8 @@
 |---|---|
 | サイドバー表示切り替え(`Ctrl+B`) | View メニュー / コマンドパレット |
 | 新規ファイル(`Ctrl+N`) | File メニュー / コマンドパレット |
-| Quick Open(`Ctrl+P`) | `Ctrl+X Ctrl+F` / コマンドパレット |
+| Quick Open(`Ctrl+P`、および第2キーの `Ctrl+E`) | `Ctrl+X Ctrl+F` / コマンドパレット |
+| ターミナルの検索ウィジェット(ターミナルにフォーカスがある時の `Ctrl+F`) | コマンドパレット |
 | Find(`Ctrl+F`) | `Ctrl+S` / コマンドパレット |
 | Go to Line(`Ctrl+G`) | コマンドパレット |
 | 全選択(`Ctrl+A`) | Edit メニュー / コマンドパレット |
