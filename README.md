@@ -6,7 +6,7 @@
 
 ## Policy
 
-- **Copy / Cut / Paste (`Ctrl+C` / `Ctrl+X` / `Ctrl+V`) are never broken.** `Ctrl+X` doubles as the Emacs `C-x` prefix, but if nothing follows within ~1 second it automatically falls back to a native Cut — see [How Ctrl+X works](#how-ctrlx-works).
+- **Copy / Cut / Paste (`Ctrl+C` / `Ctrl+X` / `Ctrl+V`) are never broken.** `Ctrl+X` doubles as the Emacs `C-x` prefix, but if nothing follows within ~0.5 seconds it automatically falls back to a native Cut — see [How Ctrl+X works](#how-ctrlx-works).
 - Every other override is listed below, and every feature group can be toggled independently from VS Code's own Settings UI — no custom webview, no extra app to learn.
 
 ## Keybindings by category
@@ -69,7 +69,7 @@
 
 `Ctrl+X` is **not** implemented as a native VS Code chord. VS Code has a confirmed, open limitation ([microsoft/vscode#140226](https://github.com/microsoft/vscode/issues/140226)): once a key is registered as the first half of a chord, pressing it alone and not following up doesn't fall back to whatever it used to do — it's just silently swallowed. For `Ctrl+X`, that would mean losing Cut. So instead:
 
-1. `Ctrl+X` alone starts a ~1 second window.
+1. `Ctrl+X` alone starts a ~0.5 second window.
 2. `Ctrl+F` (go to file), `Space` (toggle rectangle selection), or `Ctrl+S` (save) within that window does the corresponding action.
 3. Nothing follows within the window → a native **Cut** fires automatically, exactly as bare `Ctrl+X` always would.
 4. `Ctrl+G` cancels the window without cutting.
@@ -134,7 +134,7 @@ Search **"Light Emacs Bindings"** in VS Code's Settings UI, or edit `settings.js
 ## Known limitations / Roadmap
 
 - **Keyboard macros are out of scope for v1.** VS Code has no general-purpose macro-recording API and no way to intercept arbitrary command execution. A future version might offer a *scoped* recorder limited to this extension's own commands (movement, mark, rectangle selection, go-to-file, etc.) — that would be low-risk; a general one would not.
-- If you disable only one of `rectangleSelection.enabled` / `goToFile.enabled` / `save.enabled`, its `Ctrl+X` follow-up key falls through to that key's own VS Code default during the ~1 second window instead of doing nothing.
+- If you disable only one of `rectangleSelection.enabled` / `goToFile.enabled` / `save.enabled`, its `Ctrl+X` follow-up key falls through to that key's own VS Code default during the ~0.5 second window instead of doing nothing.
 - `Alt+F` / `Alt+B` may collide with File-menu mnemonics if your menu bar is visible (no issue if it's hidden).
 
 ## Requirements

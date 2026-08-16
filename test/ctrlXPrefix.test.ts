@@ -58,7 +58,7 @@ describe('createCtrlXPrefixController', () => {
     const controller = createCtrlXPrefixController(handlers);
 
     controller.activate();
-    vi.advanceTimersByTime(500);
+    vi.advanceTimersByTime(CTRL_X_PREFIX_TIMEOUT_MS / 2);
     controller.activate();
     vi.advanceTimersByTime(CTRL_X_PREFIX_TIMEOUT_MS - 1);
     expect(handlers.onFallbackCut).not.toHaveBeenCalled();
@@ -100,7 +100,7 @@ describe('createCtrlXPrefixController', () => {
     expect(handlers.onFallbackCut).toHaveBeenCalledTimes(1);
   });
 
-  it('defaults to a 1000ms timeout', () => {
-    expect(CTRL_X_PREFIX_TIMEOUT_MS).toBe(1000);
+  it('defaults to a 500ms timeout', () => {
+    expect(CTRL_X_PREFIX_TIMEOUT_MS).toBe(500);
   });
 });

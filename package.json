@@ -2,7 +2,7 @@
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
   "description": "軽量なEmacsキーバインディングを実現する拡張機能",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
   "icon": "images/icon.png",

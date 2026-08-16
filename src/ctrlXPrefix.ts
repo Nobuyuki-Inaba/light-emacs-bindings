@@ -1,4 +1,4 @@
-export const CTRL_X_PREFIX_TIMEOUT_MS = 1000;
+export const CTRL_X_PREFIX_TIMEOUT_MS = 500;
 
 export interface CtrlXPrefixHandlers {
   /** Mirror ctrlXPrefixActive=true into the when-clause engine. */
