@@ -1,7 +1,7 @@
 {
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
-  "description": "軽量なEmacsキーバインディングを実現する拡張機能",
+  "description": "Emacs keybindings that never break copy-paste — Ctrl+C / Ctrl+X / Ctrl+V stay 100% native. Lightweight, zero dependencies, every override documented and toggleable.",
   "version": "0.0.6",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
@@ -14,13 +14,17 @@
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other",
-    "Keymaps"
+    "Keymaps",
+    "Other"
   ],
   "keywords": [
     "emacs",
     "keybindings",
-    "keymap"
+    "keymap",
+    "emacs keymap",
+    "copy paste",
+    "clipboard",
+    "lightweight"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -148,6 +152,8 @@
         "when": "editorTextFocus && lightEmacsBindings.mark.enabled" },
       { "key": "ctrl+g", "command": "lightEmacsBindings.keyboardQuit",
         "when": "editorTextFocus && lightEmacsBindings.active" },
+      { "key": "ctrl+g", "command": "closeFindWidget",
+        "when": "findWidgetVisible && !editorTextFocus && lightEmacsBindings.active" },
 
       { "key": "ctrl+x", "command": "lightEmacsBindings.ctrlXPrefix",
         "when": "editorTextFocus && lightEmacsBindings.ctrlXPrefixAvailable" },
@@ -176,13 +182,13 @@
         "when": "editorTextFocus && lightEmacsBindings.undoRedo.enabled" },
 
       { "key": "ctrl+s", "command": "actions.find",
-        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled && !findWidgetVisible && !lightEmacsBindings.ctrlXPrefixActive" },
+        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled && !lightEmacsBindings.ctrlXPrefixActive" },
       { "key": "ctrl+s", "command": "editor.action.nextMatchFindAction",
-        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible && !lightEmacsBindings.ctrlXPrefixActive" },
+        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible && !editorTextFocus && !lightEmacsBindings.ctrlXPrefixActive" },
       { "key": "ctrl+r", "command": "actions.find",
-        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled && !findWidgetVisible" },
+        "when": "editorTextFocus && lightEmacsBindings.incrementalSearch.enabled" },
       { "key": "ctrl+r", "command": "editor.action.previousMatchFindAction",
-        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible" },
+        "when": "lightEmacsBindings.incrementalSearch.enabled && findWidgetVisible && !editorTextFocus" },
 
       { "key": "alt+x", "command": "workbench.action.showCommands",
         "when": "lightEmacsBindings.commandPalette.enabled" }

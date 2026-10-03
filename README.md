@@ -1,6 +1,6 @@
 # Light Emacs Bindings
 
-*[日本語版はこちら / Japanese version here → README.ja.md](README.ja.md)*
+*[日本語版はこちら / Japanese version here → README.ja.md](https://github.com/Nobuyuki-Inaba/light-emacs-bindings/blob/main/README.ja.md)*
 
 **Ever had an Emacs keybinding extension quietly break copy-paste on you — working in one panel, dead in another? Not this one.** Copy, Cut, and Paste stay exactly as VS Code intends, always, everywhere. This extension only adds the Emacs muscle memory that doesn't fight your editor — and anywhere a conflict truly can't be avoided, it's documented up front and can be switched off in one click.
 
@@ -37,14 +37,18 @@
 |---|---|---|
 | `Ctrl+Space` | set-mark-command — start a selection, extend it by moving | Trigger Suggest (manual invocation only; auto-popups while typing are unaffected) |
 | `Ctrl+X Space` | toggle rectangle (column) selection | *(see [Ctrl+X](#how-ctrlx-works))* |
-| `Ctrl+G` | keyboard-quit — clear mark/selection, cancel a pending `Ctrl+X` | Go to Line (still on the Command Palette) |
+| `Ctrl+G` | keyboard-quit — clear mark/selection, cancel a pending `Ctrl+X`; closes the Find widget when the search box has focus | Go to Line (still on the Command Palette) |
 
 ### Search
 
 | Key | Action | Overrides |
 |---|---|---|
-| `Ctrl+S` | isearch-forward — open search, then jump to the next match on repeat | **Save** (moved to `Ctrl+X Ctrl+S`) |
-| `Ctrl+R` | isearch-backward — open search, then jump to the previous match on repeat | Switch Window/Workspace |
+| `Ctrl+S` | isearch-forward — open/focus search from the editor, then jump to the next match while the search box has focus | **Save** (moved to `Ctrl+X Ctrl+S`) |
+| `Ctrl+R` | isearch-backward — open/focus search from the editor, then jump to the previous match while the search box has focus | Switch Window/Workspace |
+
+Pressed from the editor, both keys always put the cursor in the Find box — including when the Find widget is still open from an earlier search — so you can retype the query. Pressed again with the box focused, they repeat the search (`Ctrl+S` forward, `Ctrl+R` backward), matching Emacs' `C-s C-s`.
+
+To leave the search and get back to editing without the mouse, press `Ctrl+G` (or `Escape`) while the search box has focus: the Find widget closes, focus returns to the editor, and the caret stays on the current match.
 
 ### File & editing
 
@@ -160,4 +164,4 @@ Push a `v*` tag to trigger `.github/workflows/release.yml`, which builds a `.vsi
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/Nobuyuki-Inaba/light-emacs-bindings/blob/main/LICENSE).
