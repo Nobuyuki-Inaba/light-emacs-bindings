@@ -1,6 +1,6 @@
 # Light Emacs Bindings
 
-*[English version here → README.md](README.md)*
+*[English version here → README.md](https://github.com/Nobuyuki-Inaba/light-emacs-bindings/blob/main/README.md)*
 
 **VS CodeのEmacsキーバインド拡張機能で、コピペができなくなったことはありませんか？あるパネルでは動くのに、別の場所では効かない……そんな経験、ありませんか？**この拡張機能ではそれが起きません。コピー・カット・ペーストは常にVS Code標準のまま動きます。コピペは標準を使いましょう — この拡張機能はまさにそのために作られています。追加するのは、エディタと喧嘩しないEmacsの手癖だけです。どうしても衝突が避けられない箇所は事前にドキュメント化し、ワンクリックで無効化できるようにしています。
 
@@ -37,14 +37,18 @@
 |---|---|---|
 | `Ctrl+Space` | mark設定 — 選択を開始し、移動キーで拡張 | Trigger Suggest(手動呼び出しのみ。タイピング中の自動候補表示は影響なし) |
 | `Ctrl+X Space` | 矩形(カラム)選択トグル | *([Ctrl+X](#ctrlxの仕組み)参照)* |
-| `Ctrl+G` | keyboard-quit — mark/選択解除、`Ctrl+X` 待機のキャンセル | Go to Line(コマンドパレットから利用可) |
+| `Ctrl+G` | keyboard-quit — mark/選択解除、`Ctrl+X` 待機のキャンセル。検索欄にフォーカスがあるときはFindウィジェットを閉じる | Go to Line(コマンドパレットから利用可) |
 
 ### 検索
 
 | キー | 動作 | 上書きする既定動作 |
 |---|---|---|
-| `Ctrl+S` | インクリメンタル検索(前方) — 開始、再度押すと次候補へ | **保存**(`Ctrl+X Ctrl+S` に移動) |
-| `Ctrl+R` | インクリメンタル検索(後方) — 開始、再度押すと前候補へ | ウィンドウ/ワークスペース切り替え |
+| `Ctrl+S` | インクリメンタル検索(前方) — エディタからは検索を開く/検索欄へフォーカス、検索欄にフォーカスがある状態では次候補へ | **保存**(`Ctrl+X Ctrl+S` に移動) |
+| `Ctrl+R` | インクリメンタル検索(後方) — エディタからは検索を開く/検索欄へフォーカス、検索欄にフォーカスがある状態では前候補へ | ウィンドウ/ワークスペース切り替え |
+
+エディタから押した場合、どちらのキーも必ず検索欄にカーソルを移します(前回の検索でFindウィジェットが開いたままの場合も同様)。そのため検索語をすぐ打ち直せます。検索欄にフォーカスがある状態でもう一度押すと検索を繰り返します(`Ctrl+S` は前方、`Ctrl+R` は後方)。Emacsの `C-s C-s` と同じ挙動です。
+
+検索を抜けて編集に戻るには、検索欄にフォーカスがある状態で `Ctrl+G`(または `Escape`)を押します。Findウィジェットが閉じてエディタにフォーカスが戻り、キャレットは現在のヒット位置に残ります。
 
 ### ファイル・編集
 
@@ -160,4 +164,4 @@ VS Codeで **F5** を押すとExtension Development Hostが起動します。
 
 ## License
 
-MIT — [LICENSE](LICENSE) 参照。
+MIT — [LICENSE](https://github.com/Nobuyuki-Inaba/light-emacs-bindings/blob/main/LICENSE) 参照。
