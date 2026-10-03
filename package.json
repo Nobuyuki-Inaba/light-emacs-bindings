@@ -2,7 +2,7 @@
   "name": "light-emacs-bindings",
   "displayName": "Light Emacs Bindings",
   "description": "Emacs keybindings that never break copy-paste — Ctrl+C / Ctrl+X / Ctrl+V stay 100% native. Lightweight, zero dependencies, every override documented and toggleable.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "nobuyuki-inaba",
   "license": "MIT",
   "icon": "images/icon.png",
